@@ -33,13 +33,12 @@
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="@dimen/_70sdp"
         android:layout_height="@dimen/_70sdp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="@id/onbordoneimg"
         app:layout_constraintEnd_toEndOf="@id/onbordoneimg"
         app:layout_constraintStart_toStartOf="@id/onbordoneimg"
         app:layout_constraintTop_toTopOf="@id/onbordoneimg"
-        app:lottie_rawRes="@raw/home" />
+        app:lottie_rawRes="@raw/onbord4" />
 
 
     <TextView
@@ -51,7 +50,7 @@
         android:gravity="center"
         android:text="   Recover all deleted\nphoto and video"
         android:textColor="@color/titletextcolor"
-        android:textFontWeight="600"
+        android:textFontWeight="650"
         android:textSize="@dimen/_17ssp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
-        android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and connect with "
+        android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and\n connect with "
         app:layout_constraintTop_toBottomOf="@id/onbordtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

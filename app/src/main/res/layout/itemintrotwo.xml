@@ -31,21 +31,17 @@
             app:lottie_rawRes="@raw/animation1" />
 
 
-   <ImageView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="@dimen/_4sdp"
-       android:layout_marginRight="@dimen/_5sdp"
-       android:src="@drawable/onboard2insideanimimg"
-       app:layout_constraintTop_toTopOf="@id/lottie2"
-       app:layout_constraintStart_toStartOf="@id/lottie2"
-       app:layout_constraintEnd_toEndOf="@id/lottie2"
-       app:layout_constraintBottom_toBottomOf="@id/lottie2"
-/>
-
-
-
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:src="@drawable/onboard2insideanimimg"
+        app:layout_constraintBottom_toBottomOf="@id/lottie2"
+        app:layout_constraintEnd_toEndOf="@id/lottie2"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@id/lottie2"
+        app:layout_constraintTop_toTopOf="@id/lottie2" />
 
     <TextView
         android:id="@+id/onbordtitle"
@@ -56,7 +52,7 @@
         android:gravity="center"
         android:text="@string/titletext1"
         android:textColor="@color/titletextcolor"
-        android:textFontWeight="600"
+        android:textFontWeight="650"
         android:textSize="@dimen/_17ssp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
-            android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and connect with "
+            android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and\n connect with "
             app:layout_constraintTop_toBottomOf="@id/onbordtitle"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="@dimen/_10sdp"
