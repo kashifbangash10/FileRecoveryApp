@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="@dimen/_15sdp"-->
+    <!--        android:layout_marginEnd="@dimen/_15sdp"-->
+    <!--        android:fontFamily="@font/inter"-->
+    <!--        android:textSize="@dimen/_15sdp"-->
+    <!--        android:text="@string/skip"-->
+
+    <!--        android:textColor="@color/skipcolor"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ImageView
+        android:id="@+id/onbordoneimg"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_25ssp"
+        android:layout_height="@dimen/_332sdp"
+        android:src="@drawable/onboardimg3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@id/onbordoneimg"
+        app:layout_constraintEnd_toEndOf="@id/onbordoneimg"
+        app:layout_constraintStart_toStartOf="@id/onbordoneimg"
+        app:layout_constraintTop_toTopOf="@id/onbordoneimg"
+        app:lottie_rawRes="@raw/animtion" />
+
+
+    <TextView
+        android:id="@+id/onbordtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="   Recover all deleted\nphoto and video"
+        android:textColor="@color/titletextcolor"
+        android:textFontWeight="600"
+        android:textSize="@dimen/_17ssp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/onbordoneimg" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and connect with "
+        app:layout_constraintTop_toBottomOf="@id/onbordtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/_10sdp"
+        android:textFontWeight="400"
+        android:textStyle="normal"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/_35sdp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

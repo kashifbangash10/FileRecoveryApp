@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FileRecoveryApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_recovery">All Recovery</string>
+    <string name="skip">Skip</string>
+    <string name="titletext">Automatically Search \n and Recovery all</string>
+    <string name="titletext1">Recover easily and \n quickly</string>
+
+
+</resources>

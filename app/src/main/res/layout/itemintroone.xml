@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/onbordoneimg"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_25ssp"
+        android:layout_height="@dimen/_332sdp"
+        android:src="@drawable/onbordingimg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@id/onbordoneimg"
+        app:layout_constraintEnd_toEndOf="@id/onbordoneimg"
+        app:layout_constraintStart_toStartOf="@id/onbordoneimg"
+        app:layout_constraintTop_toTopOf="@id/onbordoneimg"
+        app:lottie_rawRes="@raw/animation1" />
+
+
+    <TextView
+        android:id="@+id/onbordtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titletext"
+        android:textColor="@color/titletextcolor"
+        android:fontFamily="@font/roboto"
+        android:textSize="@dimen/_17ssp"
+        android:textFontWeight="600"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/onbordoneimg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_65sdp"
+        android:gravity="center"/>
+
+     <TextView
+
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/_13sdp"
+         android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and connect with "
+         app:layout_constraintTop_toBottomOf="@id/onbordtitle"
+         app:layout_constraintStart_toStartOf="parent"
+         android:textSize="@dimen/_10sdp"
+         android:textFontWeight="400"
+         android:textStyle="normal"
+         android:fontFamily="@font/roboto"
+         android:gravity="center"
+         android:layout_marginHorizontal="@dimen/_35sdp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
