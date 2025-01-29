@@ -10,29 +10,48 @@
             android:id="@+id/onbordoneimg"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="@dimen/_25ssp"
-            android:layout_height="@dimen/_332sdp"
+            android:layout_height="0dp"
             android:src="@drawable/onboardimg2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".7"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie2"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
-            android:layout_marginEnd="24dp"
             android:layout_marginBottom="32dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             app:layout_constraintBottom_toBottomOf="@id/onbordoneimg"
             app:layout_constraintEnd_toEndOf="@id/onbordoneimg"
             app:layout_constraintStart_toStartOf="@id/onbordoneimg"
             app:layout_constraintTop_toTopOf="@id/onbordoneimg"
-            app:lottie_rawRes="@raw/animtion" />
+            app:lottie_rawRes="@raw/animation1" />
+
+
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/_4sdp"
+       android:layout_marginRight="@dimen/_5sdp"
+       android:src="@drawable/onboard2insideanimimg"
+       app:layout_constraintTop_toTopOf="@id/lottie2"
+       app:layout_constraintStart_toStartOf="@id/lottie2"
+       app:layout_constraintEnd_toEndOf="@id/lottie2"
+       app:layout_constraintBottom_toBottomOf="@id/lottie2"
+/>
+
+
+
 
 
     <TextView
         android:id="@+id/onbordtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
         android:text="@string/titletext1"
@@ -47,16 +66,18 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:text="Explore verified job sites registered by trusted \n contractors in your area. Stay informed and connect with "
             app:layout_constraintTop_toBottomOf="@id/onbordtitle"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="@dimen/_10sdp"
             android:textFontWeight="400"
+            android:layout_marginHorizontal="@dimen/_35sdp"
             android:textStyle="normal"
             android:fontFamily="@font/roboto"
+            app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center"
-            android:layout_marginHorizontal="@dimen/_35sdp"/>
+            />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
