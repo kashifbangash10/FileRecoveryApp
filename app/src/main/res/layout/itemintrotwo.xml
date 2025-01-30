@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_marginHorizontal="@dimen/_25ssp"
             android:layout_height="0dp"
-            android:src="@drawable/onboardimg2"
+            android:src="@drawable/onboardimg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".7"
             app:layout_constraintStart_toStartOf="parent"

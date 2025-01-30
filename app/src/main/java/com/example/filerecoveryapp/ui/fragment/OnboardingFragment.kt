@@ -37,20 +37,24 @@ class OnboardingFragment : Fragment() {
         adapter = OnboardingAdapter(layouts, requireContext())
         binding.viewPager.adapter = adapter
 
+        // TabLayout Mediator for linking TabLayout with ViewPager2
+        TabLayoutMediator(binding.tablayout, binding.viewPager) { tab, position ->
+            // Tabs indicators, we don't need to set text here
+        }.attach()
+
         binding.btnnext.setOnClickListener {
             val currentItem = binding.viewPager.currentItem
             if (currentItem < layouts.size - 1) {
                 binding.viewPager.currentItem = currentItem + 1
             } else {
-                startActivity(Intent(requireContext(),HomeActivity::class.java))
+                startActivity(Intent(requireContext(), HomeActivity::class.java))
                 requireActivity().finish()
             }
         }
 
         binding.tvSkip.setOnClickListener {
-            startActivity(Intent(requireContext(),HomeActivity::class.java))
+            startActivity(Intent(requireContext(), HomeActivity::class.java))
             requireActivity().finish()
-
         }
     }
 

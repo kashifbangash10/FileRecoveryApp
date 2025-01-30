@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="@dimen/_25ssp"
         android:layout_height="0dp"
-        android:src="@drawable/onboardimg3"
+        android:src="@drawable/onboardimg"
         app:layout_constraintHeight_percent="0.7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".ui.fragment.HomeFragment">
 
     <TextView
-        android:id="@+id/recvoerytxt2"
+        android:id="@+id/recoverytxt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -34,8 +36,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/customCard"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_height="@dimen/_120sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_15sdp"
         app:cardElevation="@dimen/_2sdp"
@@ -44,58 +46,403 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="@dimen/_10sdp">
+            android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="@dimen/_12sdp"
+                android:id="@+id/imagecard"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_48sdp"
-                app:cardBackgroundColor="@color/white"
-                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
                 app:cardCornerRadius="@dimen/_12sdp"
-                android:layout_marginBottom="@dimen/_29sdp">
+                app:cardBackgroundColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     app:lottie_autoPlay="true"
+                    app:lottie_speed="0.7"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/home" />
-
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/capacityText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Capacity"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:fontFamily="@font/roboto"
+                android:text="Capacity"
+                android:textColor="@android:color/white"
                 android:textFontWeight="600"
-                android:layout_marginBottom="@dimen/_25sdp"
-                android:textColor="@color/white"
-                android:layout_marginStart="10dp"/>
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintStart_toEndOf="@id/imagecard"
+                app:layout_constraintTop_toTopOf="@id/imagecard" />
 
             <TextView
+                android:id="@+id/usedStorageText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Capacity"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold"
+                android:text="Used 31GB / 119GB"
                 android:fontFamily="@font/roboto"
-                android:textFontWeight="600"
-                android:layout_marginBottom="@dimen/_25sdp"
+                android:textFontWeight="400"
                 android:textColor="@color/white"
-                android:layout_marginStart="10dp"/>
+                android:textStyle="normal"
+                android:layout_marginHorizontal="@dimen/_14sdp"
+                app:layout_constraintStart_toEndOf="@id/imagecard"
+                app:layout_constraintTop_toBottomOf="@id/capacityText"/>
 
-        </LinearLayout>
 
+            <ProgressBar
+                android:id="@+id/horizontalProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginVertical="@dimen/_35sdp"
+                android:layout_marginBottom="32dp"
+                android:progress="30"
+                android:progressDrawable="@drawable/custumprograssbar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/elipse1"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/ellipse_3"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_22sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/horizontalProgressBar" />
+
+            <TextView
+                android:id="@+id/photosText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_8sdp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/elipse1"
+                app:layout_constraintTop_toBottomOf="@id/horizontalProgressBar"/>
+
+            <ImageView
+                android:id="@+id/elipse2"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/ellipse_4"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:layout_constraintStart_toEndOf="@id/photosText"
+                app:layout_constraintTop_toBottomOf="@id/horizontalProgressBar" />
+            <TextView
+                android:id="@+id/videotext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Videos"
+
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_8sdp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/elipse2"
+                app:layout_constraintTop_toBottomOf="@id/horizontalProgressBar"/>
+
+            <ImageView
+                android:id="@+id/elipse3"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/ellipse_5"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:layout_constraintStart_toEndOf="@id/videotext"
+                app:layout_constraintTop_toBottomOf="@id/horizontalProgressBar" />
+
+            <TextView
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_8sdp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/elipse3"
+                app:layout_constraintTop_toBottomOf="@id/horizontalProgressBar"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/featuretxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Features"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="#040031"
+        android:fontFamily="@font/roboto"
+        android:textFontWeight="600"
+        android:layout_marginTop="@dimen/_24sdp"
+        app:layout_constraintTop_toBottomOf="@id/customCard"
+        app:layout_constraintStart_toStartOf="@id/customCard"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/featuretxt">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingVertical="24dp"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+
+                android:background="@drawable/custumedittextbg"
+                android:paddingVertical="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@drawable/recoveryimg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/recoverytxt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover Photos"
+                    android:textColor="#040031"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover your all images by scanning"
+                    android:textColor="#120F31"
+                    android:textFontWeight="300"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView1"
+                    app:layout_constraintTop_toBottomOf="@id/recoverytxt3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custumedittextbg"
+
+                android:paddingVertical="@dimen/_18sdp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/constraint"
+                app:layout_constraintTop_toBottomOf="@id/constraint">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@drawable/videoimg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/recoverytxt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover Video"
+                    android:textColor="#040031"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/videotext1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover your all images by scanning"
+                    android:textColor="#120F31"
+                    android:textFontWeight="300"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@id/recoverytxt4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custumedittextbg"
+                android:paddingVertical="@dimen/_18sdp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.615"
+                app:layout_constraintStart_toStartOf="@id/constraint1"
+                app:layout_constraintTop_toBottomOf="@id/constraint1">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@drawable/recoveryotherfileimg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/recoverytxt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover other files"
+                    android:textColor="#040031"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/videotext2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover your all images by scanning"
+                    android:textColor="#120F31"
+                    android:textFontWeight="300"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@id/recoverytxt5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:background="@drawable/custumedittextbg"
+                android:paddingVertical="@dimen/_18sdp"
+                app:layout_constraintTop_toBottomOf="@id/constraint2"
+                app:layout_constraintStart_toStartOf="@id/constraint2"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@drawable/recoverdfilesimg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/recoverytxt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recoverd Files"
+                    android:textColor="#040031"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView4"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/videotext3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Recover your all images by scanning"
+                    android:textColor="#120F31"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toEndOf="@id/imageView4"
+                    app:layout_constraintTop_toBottomOf="@id/recoverytxt6" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
