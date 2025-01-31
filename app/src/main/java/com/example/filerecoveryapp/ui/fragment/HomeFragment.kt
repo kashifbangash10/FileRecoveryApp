@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.filerecoveryapp.R
 import com.example.filerecoveryapp.databinding.FragmentHomeBinding
-
 
 class HomeFragment : Fragment() {
 
@@ -26,30 +24,26 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Set click listeners using View Binding
-        binding.constraint.setOnClickListener {
-
-            navigateToScanningScreen("Photos")
-
-        }
-
         binding.constraint1.setOnClickListener {
-            navigateToScanningScreen("Videos")
+            // First Constraint Click: Navigate with "photo" recovery type
+            val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("photo")
+            findNavController().navigate(action)
         }
 
-        binding.constraint2
-            .setOnClickListener {
-            navigateToScanningScreen("Recover other files")
+        binding.constraint2.setOnClickListener {
+            // Second Constraint Click: Navigate with "video" recovery type
+            val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("video")
+            findNavController().navigate(action)
         }
-    }
-
-    private fun navigateToScanningScreen(type: String) {
-        val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment(type)
-        findNavController().navigate(action)
+        binding.constraint3.setOnClickListener {
+            // Second Constraint Click: Navigate with "video" recovery type
+            val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("video")
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Clean up View Binding
+        _binding = null
     }
 }
