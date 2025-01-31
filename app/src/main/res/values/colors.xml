@@ -7,5 +7,6 @@
     <color name="skipcolor">#737478</color>
     <color name="titletextcolor">#040031</color>
     <color name="buttoncolor">#587EF5</color>
+    <color name="Primarycolor">#587EF5</color>
 
 </resources>

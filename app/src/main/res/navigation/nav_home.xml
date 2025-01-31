@@ -17,5 +17,10 @@
         android:id="@+id/recoverPhotoFragment"
         android:name="com.example.filerecoveryapp.ui.fragment.RecoverPhotoFragment"
         android:label="fragment_recover_photo"
-        tools:layout="@layout/fragment_recover_photo" />
+        tools:layout="@layout/fragment_recover_photo" >
+        <argument
+            android:name="recoveryType"
+            app:argType="string" />
+    </fragment>
+
 </navigation>
