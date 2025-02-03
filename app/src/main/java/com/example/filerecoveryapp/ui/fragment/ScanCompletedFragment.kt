@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.filerecoveryapp.R
 
-// TODO: Rename parameter arguments, choose names that match
 
 class ScanCompletedFragment : Fragment() {
 

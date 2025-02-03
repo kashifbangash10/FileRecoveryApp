@@ -24,20 +24,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.constraint1.setOnClickListener {
-            // First Constraint Click: Navigate with "photo" recovery type
+        // Navigate with "photo" recovery type when constraint1 is clicked
+        binding.constraint.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("photo")
             findNavController().navigate(action)
         }
 
-        binding.constraint2.setOnClickListener {
-            // Second Constraint Click: Navigate with "video" recovery type
+        // Navigate with "video" recovery type when constraint2 is clicked
+        binding.constraint1.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("video")
             findNavController().navigate(action)
         }
-        binding.constraint3.setOnClickListener {
-            // Second Constraint Click: Navigate with "video" recovery type
-            val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("video")
+
+        // Navigate with other recovery type when constraint3 is clicked
+        binding.constraint2.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("document")
             findNavController().navigate(action)
         }
     }

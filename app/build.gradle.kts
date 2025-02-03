@@ -75,6 +75,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.airbnb.android:lottie:6.6.2")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     implementation ("androidx.navigation:navigation-fragment:$nav_version")
     implementation ("androidx.navigation:navigation-ui:$nav_version")

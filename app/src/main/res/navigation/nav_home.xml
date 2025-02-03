@@ -4,23 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
+
+    <!-- Home Fragment -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.filerecoveryapp.ui.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
+
+        <!-- Action to navigate from Home to RecoverPhotoFragment with recoveryType argument -->
         <action
             android:id="@+id/action_homeFragment_to_recoverPhotoFragment"
             app:destination="@id/recoverPhotoFragment" />
     </fragment>
+
+    <!-- RecoverPhoto Fragment -->
     <fragment
         android:id="@+id/recoverPhotoFragment"
         android:name="com.example.filerecoveryapp.ui.fragment.RecoverPhotoFragment"
         android:label="fragment_recover_photo"
-        tools:layout="@layout/fragment_recover_photo" >
+        tools:layout="@layout/fragment_recover_photo">
+
+        <!-- Argument for recoveryType -->
         <argument
             android:name="recoveryType"
             app:argType="string" />
+
+        <!-- Action to navigate from RecoverPhotoFragment to ScanResultFragment -->
+        <action
+            android:id="@+id/action_recoverPhotoFragment_to_scanResultFragment2"
+            app:destination="@id/scanResultFragment2" />
     </fragment>
 
+    <!-- ScanResult Fragment -->
+    <fragment
+        android:id="@+id/scanResultFragment2"
+        android:name="com.example.filerecoveryapp.ui.fragment.ScanResultFragment"
+        android:label="ScanResultFragment" />
 </navigation>
