@@ -1,4 +1,4 @@
-package com.example.filerecoveryapp.ui.folderAdaptor
+package com.example.filerecoveryapp.ui.Adaptor.folderAdaptor
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import com.example.filerecoveryapp.databinding.ItemscanimagesBinding
 
 data class FolderItem(val name: String, val imagePaths: String, val fileCount: Int)
 
-class FolderAdapter(private val folders: List<FolderItem>, private val listener: (FolderItem) -> Unit) :
+class FolderAdapter(private var folders: List<FolderItem>, private val listener: (FolderItem) -> Unit) :
     RecyclerView.Adapter<FolderAdapter.FolderViewHolder>() {
 
     class FolderViewHolder(val binding: ItemscanimagesBinding) : RecyclerView.ViewHolder(binding.root)
@@ -25,22 +25,28 @@ class FolderAdapter(private val folders: List<FolderItem>, private val listener:
             foldername.text = folder.name
             textFileCount.text = "${folder.fileCount} files"
 
-            // List of ImageViews to hold the images
             val imageViews = listOf(imageThumbnail, imageThumbnail1, imageThumbnail2)
 
-            // If there are multiple images in the folder, assign them to the ImageViews
-            folder.imagePaths.forEachIndexed { index, imagePath ->
-                if (index < imageViews.size) {
-                    Glide.with(root.context)
-                        .load(imagePath)
-                        .placeholder(R.drawable.videoimg)
-                        .into(imageViews[index])  // Load image into the corresponding ImageView
-                }
+            // Clear previous images
+            imageViews.forEach { it.setImageResource(R.drawable.videoimg) }
+
+            // Load up to 3 images
+            folder.imagePaths.take(imageViews.size).forEachIndexed { index, imagePath ->
+                Glide.with(root.context)
+                    .load(imagePath)
+                    .placeholder(R.drawable.videoimg)
+                    .into(imageViews[index])
             }
 
             root.setOnClickListener { listener(folder) }
         }
     }
 
-    override fun getItemCount() = folders.size
+    override fun getItemCount(): Int = folders.size
+
+    // Correct placement of updateData function
+    fun updateData(newData: List<FolderItem>) {
+        folders = newData
+        notifyDataSetChanged()
+    }
 }

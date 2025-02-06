@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
 
         // Navigate with "video" recovery type when constraint2 is clicked
         binding.constraint1.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToRecoverPhotoFragment("video")
+            val action = HomeFragmentDirections.actionHomeFragmentToRecoveryVideoFragment("video")
             findNavController().navigate(action)
         }
 
