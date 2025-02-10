@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filerecoveryapp.databinding.FragmentScanResultBinding
 import com.example.filerecoveryapp.ui.Adaptor.folderAdaptor.FolderAdapter
 import com.example.filerecoveryapp.viewmodel.FileViewModel
 import com.example.filerecoveryapp.viewmodel.ScanState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ScanResultFragment : Fragment() {
@@ -33,51 +32,58 @@ class ScanResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize RecyclerView with empty data
+        // RecyclerView setup
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = FolderAdapter(mutableListOf()) { folder -> }
+        adapter = FolderAdapter(mutableListOf()) { folder ->
+            val action = ScanResultFragmentDirections
+                .actionScanResultFragmentToScanRecoveryFragment(folder.name)
+            findNavController().navigate(action)
+        }
         binding.recyclerView.adapter = adapter
 
-        // Observe scanState for updates
+        // Observe scanState changes
         viewModel.scanState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ScanState.Scanning -> {
-                    binding.scanningtxt.text = "Scanning..." // Display scanning text
+                    binding.scanningtxt.text = "Scanning..."
                     binding.horizontalProgressBar1.visibility = View.VISIBLE
                     binding.horizontalProgressBar1.progress = state.scanProgress
-                    binding.usedStorageText.text = "Scanning: ${state.currentFileName}" // Show the current file being scanned
+                    binding.usedStorageText.text = "Scanning: ${state.currentFileName}"
                 }
+
                 is ScanState.Success -> {
-                    lifecycleScope.launch {
-                        adapter.updateData(state.data) // Update adapter with new data
-
-                        // Once scanning is done, show the folder name or path
-                        val folderPath = state.data.firstOrNull()?.name ?: "No media found"
-                        binding.usedStorageText.text = folderPath
-
-                        // Hide progress bar when scanning is done
-                        binding.horizontalProgressBar1.visibility = View.GONE
-                    }
+                    adapter.updateData(state.data)
+                    binding.usedStorageText.text = state.data.firstOrNull()?.name ?: "No media found"
+                    binding.horizontalProgressBar1.visibility = View.GONE
                 }
+
                 is ScanState.Error -> {
                     binding.usedStorageText.text = "Error: ${state.message}"
                     binding.horizontalProgressBar1.visibility = View.GONE
                 }
-                else -> {}
+
+                else -> {
+                    binding.usedStorageText.text = "Unknown state"
+                    binding.horizontalProgressBar1.visibility = View.GONE
+                }
             }
         }
 
-        // Observe progress updates
+        // Observe scan progress separately
         viewModel.scanProgress.observe(viewLifecycleOwner) { progress ->
+            binding.horizontalProgressBar1.visibility = View.VISIBLE
             binding.horizontalProgressBar1.progress = progress
         }
 
-        // Fetch media folders (start scanning)
-        viewModel.fetchMediaFolders()
+        // Ensure fetchMediaFolders is only called once
+        if (viewModel.scanState.value == null) {
+            viewModel.fetchMediaFolders()
+        }
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        binding.recyclerView.adapter = null
         _binding = null
+        super.onDestroyView()
     }
 }

@@ -92,7 +92,7 @@ class RecoverPhotoFragment : Fragment() {
         dialogBinding.btnOkey.setOnClickListener {
             alertDialog.dismiss()
             if (findNavController().currentDestination?.id == R.id.recoverPhotoFragment) {
-                findNavController().navigate(R.id.action_recoverPhotoFragment_to_scanResultFragment2)
+                findNavController().navigate(R.id.action_recoverPhotoFragment_to_scanResultFragment)
             }
         }
     }

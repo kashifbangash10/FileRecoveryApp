@@ -12,7 +12,6 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
-        <!-- Actions to navigate from Home -->
         <action
             android:id="@+id/action_homeFragment_to_recoverPhotoFragment"
             app:destination="@id/recoverPhotoFragment" />
@@ -21,47 +20,64 @@
             app:destination="@id/recoveryVideoFragment" />
     </fragment>
 
-    <!-- RecoverPhoto Fragment -->
+    <!-- Recover Photo Fragment -->
     <fragment
         android:id="@+id/recoverPhotoFragment"
         android:name="com.example.filerecoveryapp.ui.fragment.RecoverPhotoFragment"
         android:label="fragment_recover_photo"
         tools:layout="@layout/fragment_recover_photo">
 
-        <!-- Argument for recoveryType -->
         <argument
             android:name="recoveryType"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="photo" />
 
-        <!-- Action to navigate from RecoverPhotoFragment to ScanResultFragment -->
         <action
-            android:id="@+id/action_recoverPhotoFragment_to_scanResultFragment2"
-            app:destination="@id/scanResultFragment2" />
+            android:id="@+id/action_recoverPhotoFragment_to_scanResultFragment"
+            app:destination="@id/scanResultFragment" />
     </fragment>
 
-    <!-- RecoveryVideo Fragment -->
+    <!-- Recover Video Fragment -->
     <fragment
         android:id="@+id/recoveryVideoFragment"
         android:name="com.example.filerecoveryapp.ui.fragment.RecoveryVideoFragment"
         android:label="fragment_recovery_video"
         tools:layout="@layout/fragment_recovery_video">
 
-        <!-- Argument for recoveryType -->
         <argument
             android:name="recoveryType"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="video" />
 
-        <!-- Action to navigate from RecoveryVideoFragment to ScanResultFragment -->
         <action
-            android:id="@+id/action_recoveryVideoFragment_to_scanResultFragment2"
-            app:destination="@id/scanResultFragment2" />
+            android:id="@+id/action_recoveryVideoFragment_to_scanResultFragment"
+            app:destination="@id/scanResultFragment" />
     </fragment>
 
     <!-- ScanResult Fragment -->
     <fragment
-        android:id="@+id/scanResultFragment2"
+        android:id="@+id/scanResultFragment"
         android:name="com.example.filerecoveryapp.ui.fragment.ScanResultFragment"
         android:label="ScanResultFragment"
-        tools:layout="@layout/fragment_scan_result" />
+        tools:layout="@layout/fragment_scan_result">
+
+        <action
+            android:id="@+id/action_scanResultFragment_to_scanRecoveryFragment"
+            app:destination="@id/scanRecoveryFragment" />
+
+    </fragment>
+
+    <!-- ScanRecovery Fragment (Fix SafeArgs issue) -->
+    <fragment
+        android:id="@+id/scanRecoveryFragment"
+        android:name="com.example.filerecoveryapp.ui.ScanRecoveryFragment"
+        android:label="ScanRecoveryFragment"
+        tools:layout="@layout/fragment_scan_recovery">
+
+        <argument
+            android:name="folderName"
+
+            app:argType="string" />
+    </fragment>
 
 </navigation>

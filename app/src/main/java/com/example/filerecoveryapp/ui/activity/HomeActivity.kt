@@ -15,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.filerecoveryapp.R
 import com.example.filerecoveryapp.data.FileRepository.FileRepository
-import com.example.filerecoveryapp.data.FileRepository.OtherFileRepository
+
+import com.example.filerecoveryapp.data.FileRepository.VideoRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -25,9 +26,8 @@ class HomeActivity : AppCompatActivity() {
     @Inject
     lateinit var fileRepository: FileRepository
     @Inject
-    lateinit var videoRepository: FileRepository
-@Inject
-    lateinit var otherFileRepository: OtherFileRepository
+    lateinit var videoRepository: VideoRepository
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

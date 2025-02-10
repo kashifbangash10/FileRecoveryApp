@@ -31,7 +31,7 @@ class RecoveryVideoFragment : Fragment() {
         // Handle button click to navigate to ScanResultFragment2
         binding.lottie2.setOnClickListener {
             val action =
-                RecoveryVideoFragmentDirections.actionRecoveryVideoFragmentToScanResultFragment2()
+                RecoveryVideoFragmentDirections.actionRecoveryVideoFragmentToScanResultFragment()
             findNavController().navigate(action)
         }
 
