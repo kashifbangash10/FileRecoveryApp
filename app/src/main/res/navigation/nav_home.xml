@@ -8,7 +8,7 @@
     <!-- Home Fragment -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.filerecoveryapp.ui.fragment.HomeFragment"
+        android:name="com.example.filerecoveryapp.presentation.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
@@ -23,7 +23,7 @@
     <!-- Recover Photo Fragment -->
     <fragment
         android:id="@+id/recoverPhotoFragment"
-        android:name="com.example.filerecoveryapp.ui.fragment.RecoverPhotoFragment"
+        android:name="com.example.filerecoveryapp.presentation.fragment.RecoverPhotoFragment"
         android:label="fragment_recover_photo"
         tools:layout="@layout/fragment_recover_photo">
 
@@ -40,7 +40,7 @@
     <!-- Recover Video Fragment -->
     <fragment
         android:id="@+id/recoveryVideoFragment"
-        android:name="com.example.filerecoveryapp.ui.fragment.RecoveryVideoFragment"
+        android:name="com.example.filerecoveryapp.presentation.fragment.RecoveryVideoFragment"
         android:label="fragment_recovery_video"
         tools:layout="@layout/fragment_recovery_video">
 
@@ -57,7 +57,7 @@
     <!-- ScanResult Fragment -->
     <fragment
         android:id="@+id/scanResultFragment"
-        android:name="com.example.filerecoveryapp.ui.fragment.ScanResultFragment"
+        android:name="com.example.filerecoveryapp.presentation.fragment.ScanResultFragment"
         android:label="ScanResultFragment"
         tools:layout="@layout/fragment_scan_result">
 
@@ -65,9 +65,13 @@
             android:id="@+id/action_scanResultFragment_to_scanRecoveryFragment"
             app:destination="@id/scanRecoveryFragment" />
 
+        <action
+            android:id="@+id/action_scanResultFragment_to_mediaFilesFragment"
+            app:destination="@id/mediaFilesFragment" />
+
     </fragment>
 
-    <!-- ScanRecovery Fragment (Fix SafeArgs issue) -->
+    <!-- ScanRecovery Fragment -->
     <fragment
         android:id="@+id/scanRecoveryFragment"
         android:name="com.example.filerecoveryapp.ui.ScanRecoveryFragment"
@@ -76,8 +80,19 @@
 
         <argument
             android:name="folderName"
-
             app:argType="string" />
+    </fragment>
+
+    <!-- Media Files Fragment -->
+    <fragment
+        android:id="@+id/mediaFilesFragment"
+        android:name="com.example.filerecoveryapp.presentation.fragment.MediaFilesFragment"
+        android:label="MediaFilesFragment"
+        tools:layout="@layout/fragment_media_files">
+
+        <argument
+            android:name="mediaFolder"
+            app:argType="com.example.filerecoveryapp.domain.model.MediaFolder" />
     </fragment>
 
 </navigation>
